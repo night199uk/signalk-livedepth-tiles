@@ -1,6 +1,6 @@
 {
   "name": "signalk-livedepth-tiles",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared gridded bathymetry tile algorithm (Web-Mercator XYZ quadtree, sparse codec, min-pool) for the LiveDepth server plugin and chart client.",
   "keywords": [
     "bathymetry",

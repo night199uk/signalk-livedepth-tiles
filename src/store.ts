@@ -29,6 +29,8 @@ export interface TileStore {
   transaction<T>(fn: () => T): T;
   /** Drop every tile. */
   clear(): void;
+  /** Release any resources (a no-op for the in-memory store). */
+  close(): void;
 }
 
 export function createMemoryTileStore(): TileStore {
@@ -107,6 +109,9 @@ export function createMemoryTileStore(): TileStore {
     },
     transaction: (fn) => fn(),
     clear: () => {
+      tiles.clear();
+    },
+    close: () => {
       tiles.clear();
     },
   };
