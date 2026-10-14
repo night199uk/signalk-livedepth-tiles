@@ -7,6 +7,7 @@
  */
 
 import { Sounding } from "./types.js";
+import { TransducerOffset } from "./correction.js";
 import {
   BASE_ZOOM,
   MIN_ZOOM,
@@ -25,6 +26,10 @@ export interface TileMeta {
   tileSize: number;
   recordBytes: number;
   depthPath?: string;
+  /** Offset from the position the server reports to the depth transducer, when
+   * the plugin corrects for it; absent or null otherwise. A client applies the
+   * same shift to its own soundings so they match the served tiles. */
+  transducer?: TransducerOffset | null;
 }
 
 const RAD = Math.PI / 180;
